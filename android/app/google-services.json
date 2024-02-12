@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "343286858487",
+    "project_id": "yearbook-app-efacb",
+    "storage_bucket": "yearbook-app-efacb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:343286858487:android:de267956fe08aaf0da09f2",
+        "android_client_info": {
+          "package_name": "com.example.yearbook_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvmXZ3olaCuLkmwSfpB2K--3G31Ewy0P0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
