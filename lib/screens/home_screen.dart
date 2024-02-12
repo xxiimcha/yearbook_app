@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yearbook_app/screens/tabs/about_school_tab.dart';
 import 'package:yearbook_app/screens/tabs/about_theme_tab.dart';
+import 'package:yearbook_app/screens/tabs/graduates_page_tab.dart';
 import 'package:yearbook_app/utlis/colors.dart';
 import 'package:yearbook_app/widgets/text_widget.dart';
 
@@ -62,8 +63,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       setState(() {
                         selectedChip = status;
                       });
-
-                      print('asdadsd');
                     },
                     child: FilterChip(
                       shape: RoundedRectangleBorder(
@@ -88,7 +87,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       selected: selectedChip == status,
                       onSelected: (bool selected) {
-                        print('asdadsd');
                         setState(() {
                           selectedChip = status;
                         });
@@ -105,7 +103,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           selectedChip == 'About the School'
               ? const AboutSchoolTab()
-              : const AboutThemeTab()
+              : selectedChip == 'Graduates Page'
+                  ? const GraduatesTab()
+                  : const AboutThemeTab()
         ],
       ),
     );
