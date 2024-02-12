@@ -1,3 +1,5 @@
 import 'dart:ui';
 
-var primary = const Color(0xff374259);
+import 'package:flutter/material.dart';
+
+var primary = Colors.amber;
