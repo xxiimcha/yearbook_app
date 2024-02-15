@@ -176,55 +176,60 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                     ),
                   ),
-                  AppTextFormField(
-                    labelText: 'Confirm Password',
-                    keyboardType: TextInputType.visiblePassword,
-                    textInputAction: TextInputAction.done,
-                    // focusNode: confirmFocusNode,
-                    onChanged: (value) {
-                      _formKey.currentState?.validate();
+                  Form(
+                    onChanged: () {
+                      setState(() {});
                     },
-                    validator: (value) {
-                      return value!.isEmpty
-                          ? 'Please, Re-Enter Password'
-                          : AppConstants.passwordRegex.hasMatch(value)
-                              ? passwordController.text ==
-                                      confirmPasswordController.text
-                                  ? null
-                                  : 'Password not matched!'
-                              : 'Invalid Password!';
-                    },
-                    controller: confirmPasswordController,
-                    obscureText: isConfirmPasswordObscure,
-                    suffixIcon: Padding(
-                      padding: const EdgeInsets.only(right: 15),
-                      child: Focus(
-                        /// If false,
-                        ///
-                        /// disable focus for all of this node's descendants.
-                        descendantsAreFocusable: false,
+                    child: AppTextFormField(
+                      labelText: 'Confirm Password',
+                      keyboardType: TextInputType.visiblePassword,
+                      textInputAction: TextInputAction.done,
+                      // focusNode: confirmFocusNode,
+                      onChanged: (value) {
+                        _formKey.currentState?.validate();
+                      },
+                      validator: (value) {
+                        return value!.isEmpty
+                            ? 'Please, Re-Enter Password'
+                            : AppConstants.passwordRegex.hasMatch(value)
+                                ? passwordController.text ==
+                                        confirmPasswordController.text
+                                    ? null
+                                    : 'Password not matched!'
+                                : 'Invalid Password!';
+                      },
+                      controller: confirmPasswordController,
+                      obscureText: isConfirmPasswordObscure,
+                      suffixIcon: Padding(
+                        padding: const EdgeInsets.only(right: 15),
+                        child: Focus(
+                          /// If false,
+                          ///
+                          /// disable focus for all of this node's descendants.
+                          descendantsAreFocusable: false,
 
-                        /// If false,
-                        ///
-                        /// make this widget's descendants un-traversable.
-                        // descendantsAreTraversable: false,
-                        child: IconButton(
-                          onPressed: () {
-                            setState(() {
-                              isConfirmPasswordObscure =
-                                  !isConfirmPasswordObscure;
-                            });
-                          },
-                          style: ButtonStyle(
-                            minimumSize: MaterialStateProperty.all(
-                              const Size(48, 48),
+                          /// If false,
+                          ///
+                          /// make this widget's descendants un-traversable.
+                          // descendantsAreTraversable: false,
+                          child: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                isConfirmPasswordObscure =
+                                    !isConfirmPasswordObscure;
+                              });
+                            },
+                            style: ButtonStyle(
+                              minimumSize: MaterialStateProperty.all(
+                                const Size(48, 48),
+                              ),
                             ),
-                          ),
-                          icon: Icon(
-                            isConfirmPasswordObscure
-                                ? Icons.visibility_off_outlined
-                                : Icons.visibility_outlined,
-                            color: Colors.black,
+                            icon: Icon(
+                              isConfirmPasswordObscure
+                                  ? Icons.visibility_off_outlined
+                                  : Icons.visibility_outlined,
+                              color: Colors.black,
+                            ),
                           ),
                         ),
                       ),

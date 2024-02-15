@@ -95,40 +95,45 @@ class _LoginPageState extends State<LoginPage> {
                       },
                       controller: emailController,
                     ),
-                    AppTextFormField(
-                      labelText: 'Password',
-                      keyboardType: TextInputType.visiblePassword,
-                      textInputAction: TextInputAction.done,
-                      onChanged: (value) {
-                        _formKey.currentState?.validate();
+                    Form(
+                      onChanged: () {
+                        setState(() {});
                       },
-                      validator: (value) {
-                        return value!.isEmpty
-                            ? 'Please, Enter Password'
-                            : AppConstants.passwordRegex.hasMatch(value)
-                                ? null
-                                : 'Invalid Password';
-                      },
-                      controller: passwordController,
-                      obscureText: isObscure,
-                      suffixIcon: Padding(
-                        padding: const EdgeInsets.only(right: 15),
-                        child: IconButton(
-                          onPressed: () {
-                            setState(() {
-                              isObscure = !isObscure;
-                            });
-                          },
-                          style: ButtonStyle(
-                            minimumSize: MaterialStateProperty.all(
-                              const Size(48, 48),
+                      child: AppTextFormField(
+                        labelText: 'Password',
+                        keyboardType: TextInputType.visiblePassword,
+                        textInputAction: TextInputAction.done,
+                        onChanged: (value) {
+                          _formKey.currentState?.validate();
+                        },
+                        validator: (value) {
+                          return value!.isEmpty
+                              ? 'Please, Enter Password'
+                              : AppConstants.passwordRegex.hasMatch(value)
+                                  ? null
+                                  : 'Invalid Password';
+                        },
+                        controller: passwordController,
+                        obscureText: isObscure,
+                        suffixIcon: Padding(
+                          padding: const EdgeInsets.only(right: 15),
+                          child: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                isObscure = !isObscure;
+                              });
+                            },
+                            style: ButtonStyle(
+                              minimumSize: MaterialStateProperty.all(
+                                const Size(48, 48),
+                              ),
                             ),
-                          ),
-                          icon: Icon(
-                            isObscure
-                                ? Icons.visibility_off_outlined
-                                : Icons.visibility_outlined,
-                            color: Colors.black,
+                            icon: Icon(
+                              isObscure
+                                  ? Icons.visibility_off_outlined
+                                  : Icons.visibility_outlined,
+                              color: Colors.black,
+                            ),
                           ),
                         ),
                       ),
