@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yearbook_app/screens/tabs/about_school_tab.dart';
 import 'package:yearbook_app/screens/tabs/about_theme_tab.dart';
 import 'package:yearbook_app/screens/tabs/graduates_page_tab.dart';
+import 'package:yearbook_app/screens/tabs/school_activities_tab.dart';
 import 'package:yearbook_app/utlis/colors.dart';
 import 'package:yearbook_app/widgets/text_widget.dart';
 
@@ -105,7 +106,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ? const AboutSchoolTab()
               : selectedChip == 'Graduates Page'
                   ? const GraduatesTab()
-                  : const AboutThemeTab()
+                  : selectedChip == 'School Activities'
+                      ? const SchoolActivitiesTab()
+                      : const AboutThemeTab()
         ],
       ),
     );
