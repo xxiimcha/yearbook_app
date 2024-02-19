@@ -29,68 +29,72 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        foregroundColor: Colors.black,
-        backgroundColor: Colors.white,
-        elevation: 1,
-        leading: Image.asset('assets/images/logo.png'),
-        title: TextWidget(
-          text: 'HOME',
-          fontSize: 18,
-          fontFamily: 'Bold',
-        ),
-        centerTitle: true,
-        actions: [
-          IconButton(
-            onPressed: () {
-              showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                        title: const Text(
-                          'Logout Confirmation',
-                          style: TextStyle(
-                              fontFamily: 'QBold', fontWeight: FontWeight.bold),
-                        ),
-                        content: const Text(
-                          'Are you sure you want to Logout?',
-                          style: TextStyle(fontFamily: 'QRegular'),
-                        ),
-                        actions: <Widget>[
-                          MaterialButton(
-                            onPressed: () => Navigator.of(context).pop(true),
-                            child: const Text(
-                              'Close',
-                              style: TextStyle(
-                                  fontFamily: 'QRegular',
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          MaterialButton(
-                            onPressed: () async {
-                              Navigator.of(context).pushReplacement(
-                                  MaterialPageRoute(
-                                      builder: (context) => const LoginPage()));
-                            },
-                            child: const Text(
-                              'Continue',
-                              style: TextStyle(
-                                  fontFamily: 'QRegular',
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ],
-                      ));
-            },
-            icon: const Icon(
-              Icons.logout,
-            ),
-          ),
-        ],
-      ),
+      backgroundColor: Colors.white,
       body: Column(
         children: [
-          const SizedBox(
-            height: 20,
+          SafeArea(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Image.asset(
+                  'assets/images/logo.png',
+                  height: 125,
+                ),
+                TextWidget(
+                  text: 'HOME',
+                  fontSize: 18,
+                  fontFamily: 'Bold',
+                ),
+                const SizedBox(),
+                IconButton(
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                              title: const Text(
+                                'Logout Confirmation',
+                                style: TextStyle(
+                                    fontFamily: 'QBold',
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              content: const Text(
+                                'Are you sure you want to Logout?',
+                                style: TextStyle(fontFamily: 'QRegular'),
+                              ),
+                              actions: <Widget>[
+                                MaterialButton(
+                                  onPressed: () =>
+                                      Navigator.of(context).pop(true),
+                                  child: const Text(
+                                    'Close',
+                                    style: TextStyle(
+                                        fontFamily: 'QRegular',
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                                MaterialButton(
+                                  onPressed: () async {
+                                    Navigator.of(context).pushReplacement(
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const LoginPage()));
+                                  },
+                                  child: const Text(
+                                    'Continue',
+                                    style: TextStyle(
+                                        fontFamily: 'QRegular',
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ],
+                            ));
+                  },
+                  icon: const Icon(
+                    Icons.logout,
+                  ),
+                ),
+              ],
+            ),
           ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
