@@ -42,7 +42,7 @@ April - December 1952
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 500,
+      height: 450,
       child: SingleChildScrollView(
         child: Column(
           children: [

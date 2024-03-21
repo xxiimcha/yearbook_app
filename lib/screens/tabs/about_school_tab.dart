@@ -14,9 +14,7 @@ class _AboutSchoolTabState extends State<AboutSchoolTab> {
   String type = 'Overview';
 
   String pres = '''
-Br. Joaquin S. Martinez FSC, D.Min.
-2017-Present
- 
+Br. Joaquin S. Martinez FSC, D.Min. 2017-Present
 Br. Manuel Pajarillo FSC
 2015-2017
 Br. Raymund Suplido FSC
@@ -44,7 +42,7 @@ April - December 1952
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 500,
+      height: 450,
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -118,17 +116,23 @@ April - December 1952
                   const SizedBox(
                     height: 20,
                   ),
-                  TextWidget(
-                    text: type == 'Overview'
-                        ? 'The University of St. La Salle, a non-stock and non-profit corporation, was established in 1952 by three American Brothers under the Philippine Province of the Brothers of the Christian Schools, an international institute of religious Brothers dedicated to the human and Christian education of the young, especially the poor.'
-                        : type == 'Values'
-                            ? '''Mission
-True to our Catholic tradition and inspired by St. John Baptist de La Salle, University of St. La Salle forms persons of integrity and excellence, committed to the shared mission of caring for peoples and the Earth.
-Vision
-University of St. La Salle is a premier, responsive learning community, advancing human and Christian education, through research, innovation, and social engagement in Asia and the Pacific, in the service of humanity.
-'''
-                            : pres,
-                    fontSize: 14,
+                  Center(
+                    child: TextWidget(
+                      text: type == 'Overview'
+                          ? 'The University of St. La Salle, a non-stock and non-profit corporation, was established in 1952 by three American Brothers under the Philippine Province of the Brothers of the Christian Schools, an international institute of religious Brothers dedicated to the human and Christian education of the young, especially the poor.'
+                          : type == 'Values'
+                              ? '''Mission
+                    True to our Catholic tradition and inspired by St. John Baptist de La Salle, University of St. La Salle forms persons of integrity and excellence, committed to the shared mission of caring for peoples and the Earth.
+                    \nVision
+                    University of St. La Salle is a premier, responsive learning community, advancing human and Christian education, through research, innovation, and social engagement in Asia and the Pacific, in the service of humanity.
+                    \nCore values
+                    \nFAITH - USLS Commits to form role models, who live with faith in GOD and with deep respect to one’s self and others.
+                    \nSERVICE - USLS commits to nurture volunteerism and service moved by genuine concern and love for the poor.
+                    \nCOMMUNION IN MISSION - USLS creates a harmonious community that celebrates the values and gifts of every person.
+                    '''
+                              : pres,
+                      fontSize: 14,
+                    ),
                   ),
                 ],
               ),

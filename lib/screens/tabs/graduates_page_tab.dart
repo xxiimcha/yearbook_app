@@ -12,18 +12,20 @@ class GraduatesTab extends StatefulWidget {
 
 class _GraduatesTabState extends State<GraduatesTab> {
   List<String> selectedStatus = [
-    'COLLEGE OF ARTS AND SCIENCES',
-    'COLLEGE OF ENGINEERING AND TECHNOLOGY',
-    'COLLEGE OF NURSING',
-    'YU AN LOG COLLEGE OF BUSINESS AND ACCOUNTANCY',
-    'COLLEGE OF LAW',
+    'College of Education',
+    'College of Law',
+    'College of Nursing',
+    'College of Medicine',
+    'Yu An Log College of Business and Accountancy',
+    'College of Arts and Sciences',
+    'College of Engineering and Technology'
   ];
 
   String selectedChip = 'COLLEGE OF ARTS AND SCIENCES';
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: 500,
+        height: 450,
         child: ListView.builder(
           itemCount: selectedStatus.length,
           itemBuilder: (context, index) {

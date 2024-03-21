@@ -4,6 +4,7 @@ import 'package:yearbook_app/screens/tabs/about_school_tab.dart';
 import 'package:yearbook_app/screens/tabs/about_theme_tab.dart';
 import 'package:yearbook_app/screens/tabs/graduates_page_tab.dart';
 import 'package:yearbook_app/screens/tabs/school_activities_tab.dart';
+import 'package:yearbook_app/screens/tabs/yearbook_staff_tab.dart';
 import 'package:yearbook_app/utlis/colors.dart';
 import 'package:yearbook_app/widgets/text_widget.dart';
 
@@ -18,8 +19,6 @@ class _HomeScreenState extends State<HomeScreen> {
   List<String> selectedStatus = [
     'About the School',
     'About the Theme',
-    'School Faculty',
-    'Clubs & Orgs',
     'Graduates Page',
     'School Activities',
     'Yearbook Staff',
@@ -151,7 +150,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ? const GraduatesTab()
                   : selectedChip == 'School Activities'
                       ? const SchoolActivitiesTab()
-                      : const AboutThemeTab()
+                      : selectedChip == 'Yearbook Staff'
+                          ? YearbookStaffTab(batch: '')
+                          : const AboutThemeTab()
         ],
       ),
     );
