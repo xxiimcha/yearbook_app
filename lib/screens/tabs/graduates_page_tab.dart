@@ -13,13 +13,40 @@ class GraduatesTab extends StatefulWidget {
 
 class _GraduatesTabState extends State<GraduatesTab> {
   List<String> selectedStatus = [
-    'College of Education',
-    'College of Law',
-    'College of Nursing',
-    'College of Medicine',
-    'Yu An Log College of Business and Accountancy',
     'College of Arts and Sciences',
-    'College of Engineering and Technology'
+    'College of Engineering and Technology',
+    'College of Nursing',
+    'Yu An Log College of Business and Accountancy',
+    'College of Law',
+  ];
+
+  List cet = [
+    'Computer Engineering',
+    'Electrical Engineering',
+    'Electronics Engineering',
+    'Materials Engineering',
+    'Computer Science',
+    'Information Technology',
+    'Entertainment and Multimedia Computing'
+  ];
+
+  List cas = [
+    'Communication',
+    'Interdisciplinary Studies',
+    'Political Science',
+    'Psychology',
+    'Biology'
+  ];
+
+  List yu = [
+    'Accountancy',
+    ' Accounting Information System',
+    'Management Accounting',
+    'Agribusiness',
+    'Entrepreneurship',
+    'Hospitality Management',
+    'Tourism Management',
+    ' Business Administration',
   ];
 
   String selectedChip = 'COLLEGE OF ARTS AND SCIENCES';
@@ -35,7 +62,14 @@ class _GraduatesTabState extends State<GraduatesTab> {
               child: GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const CoursesTab()));
+                      builder: (context) => CoursesTab(
+                            title: selectedStatus[index],
+                            list: index == 0
+                                ? cas
+                                : index == 1
+                                    ? cet
+                                    : yu,
+                          )));
                 },
                 child: TextWidget(
                   text: selectedStatus[index],
