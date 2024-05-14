@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yearbook_app/screens/tabs/alumnus_tab.dart';
 import 'package:yearbook_app/screens/tabs/batch_tab.dart';
+import 'package:yearbook_app/screens/tabs/courses_tab.dart';
 import 'package:yearbook_app/widgets/text_widget.dart';
 
 class GraduatesTab extends StatefulWidget {
@@ -34,7 +35,7 @@ class _GraduatesTabState extends State<GraduatesTab> {
               child: GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const BatchTab()));
+                      builder: (context) => const CoursesTab()));
                 },
                 child: TextWidget(
                   text: selectedStatus[index],
