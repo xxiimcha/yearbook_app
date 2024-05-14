@@ -15,9 +15,7 @@ class _GraduatesTabState extends State<GraduatesTab> {
   List<String> selectedStatus = [
     'College of Arts and Sciences',
     'College of Engineering and Technology',
-    'College of Nursing',
     'Yu An Log College of Business and Accountancy',
-    'College of Law',
   ];
 
   List cet = [
