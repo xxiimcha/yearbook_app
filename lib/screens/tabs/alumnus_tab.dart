@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:yearbook_app/screens/tabs/alumnus_profile_tab.dart';
+import 'package:yearbook_app/utlis/colors.dart';
+import 'package:yearbook_app/widgets/button_widget.dart';
 import 'package:yearbook_app/widgets/text_widget.dart';
+import 'package:yearbook_app/widgets/textfield_widget.dart';
 
 class AlumnusTab extends StatefulWidget {
   String batch;
@@ -32,7 +35,9 @@ class _AlumnusTabState extends State<AlumnusTab> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          createAccountDialog();
+        },
       ),
       appBar: AppBar(
         foregroundColor: Colors.black,
@@ -120,6 +125,94 @@ class _AlumnusTabState extends State<AlumnusTab> {
               );
             },
           )),
+    );
+  }
+
+  final name = TextEditingController();
+  final course = TextEditingController();
+  final section = TextEditingController();
+  final moto = TextEditingController();
+
+  createAccountDialog() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          child: SizedBox(
+            width: 350,
+            height: 500,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Colors.grey[500],
+                            borderRadius: BorderRadius.circular(5)),
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                          child: TextWidget(
+                            text: 'Upload Picture',
+                            fontSize: 14,
+                            fontFamily: 'Bold',
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    TextFieldWidget(
+                      color: Colors.black,
+                      controller: name,
+                      label: 'Name',
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    TextFieldWidget(
+                      color: Colors.black,
+                      controller: section,
+                      label: 'Section',
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    TextFieldWidget(
+                      color: Colors.black,
+                      controller: course,
+                      label: 'Course',
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    TextFieldWidget(
+                      color: Colors.black,
+                      controller: moto,
+                      label: 'Moto',
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Center(
+                      child: ButtonWidget(
+                          color: primary,
+                          label: 'Add',
+                          onPressed: (() async {
+                            Navigator.pop(context);
+                          })),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
