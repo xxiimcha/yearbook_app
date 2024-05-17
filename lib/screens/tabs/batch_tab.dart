@@ -3,7 +3,10 @@ import 'package:yearbook_app/screens/tabs/alumnus_tab.dart';
 import 'package:yearbook_app/widgets/text_widget.dart';
 
 class BatchTab extends StatefulWidget {
-  const BatchTab({super.key});
+  String college;
+  String courses;
+
+  BatchTab({super.key, required this.college, required this.courses});
 
   @override
   State<BatchTab> createState() => _BatchTabState();
@@ -42,6 +45,8 @@ class _BatchTabState extends State<BatchTab> {
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => AlumnusTab(
+                              college: widget.college,
+                              courses: widget.courses,
                               batch: selectedStatus[index],
                             )));
                   },

@@ -4,8 +4,14 @@ import 'package:yearbook_app/widgets/text_widget.dart';
 
 class AlumnusTab extends StatefulWidget {
   String batch;
+  String college;
+  String courses;
 
-  AlumnusTab({super.key, required this.batch});
+  AlumnusTab(
+      {super.key,
+      required this.batch,
+      required this.college,
+      required this.courses});
 
   @override
   State<AlumnusTab> createState() => _AlumnusTabState();
@@ -24,6 +30,10 @@ class _AlumnusTabState extends State<AlumnusTab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () {},
+      ),
       appBar: AppBar(
         foregroundColor: Colors.black,
         backgroundColor: Colors.white,

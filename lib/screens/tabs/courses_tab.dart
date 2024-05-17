@@ -52,7 +52,10 @@ class _CoursesTabState extends State<CoursesTab> {
                     child: GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const BatchTab()));
+                            builder: (context) => BatchTab(
+                                  college: widget.title,
+                                  courses: widget.list[index],
+                                )));
                       },
                       child: TextWidget(
                         text: widget.list[index],
